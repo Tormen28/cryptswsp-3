@@ -94,6 +94,6 @@ MIT
 
 ## 📧 Contacto
 
-- Email: tu-email@ejemplo.com
-- Twitter: [@tu-usuario](https://twitter.com/tu-usuario)
-- Discord: [CryptoSwap](https://discord.gg/cryptoswap)
+- Email: enriqueyepez28@gmail.com
+- Twitter: 
+- Discord: 
