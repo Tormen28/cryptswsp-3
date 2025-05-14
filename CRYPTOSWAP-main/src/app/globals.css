@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Asegúrate de que este archivo se importe globalmente en tu aplicación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Si Tailwind CSS no tiene una animación de pulso que te guste, puedes usar esta */
+.animate-custom-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+/* Remove this as GeistSans.variable handles it */
+/* body {
+  font-family: var(--font-geist-sans), sans-serif;
+} */
+
+@layer base {
+  :root {
+    --background: 259 30% 42%; /* #5F4B8B - Muted Purple/Grey */
+    --foreground: 0 0% 100%; /* #FFFFFF - White */
+    --card: 260 47% 15%; /* Slightly lighter than primary */
+    --card-foreground: 0 0% 100%; /* White */
+    --popover: 260 47% 10%; /* Darker than primary */
+    --popover-foreground: 0 0% 100%; /* White */
+    --primary: 260 47% 12%; /* #1A0F2E - Solana Teal */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 259 30% 42%; /* #5F4B8B - Light Grey */
+    --secondary-foreground: 0 0% 100%; /* White */
+    --muted: 260 47% 20%; /* Slightly lighter muted */
+    --muted-foreground: 0 0% 70%; /* Lighter Grey for muted text */
+    --accent: 0 0% 100%; /* #FFFFFF - Electric Blue (as White) */
+    --accent-foreground: 260 47% 12%; /* #1A0F2E - Primary color for text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 47% 25%; /* Slightly lighter border */
+    --input: 260 47% 20%; /* Muted input background */
+    --ring: 0 0% 100%; /* White for focus rings */
+    --radius: 0.5rem;
+    --sidebar-background: 260 47% 10%; /* Darker sidebar background */
+    --sidebar-foreground: 0 0% 85%; /* Lighter sidebar foreground */
+    --sidebar-primary: 0 0% 100%; /* White for active/primary elements in sidebar */
+    --sidebar-primary-foreground: 260 47% 12%; /* Primary color for text on sidebar primary */
+    --sidebar-accent: 260 47% 15%; /* Slightly lighter accent for hover/active */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 260 47% 20%; /* Border color for sidebar */
+    --sidebar-ring: 0 0% 100%; /* White for focus rings in sidebar */
+  }
+  .dark {
+     --background: 259 30% 42%; /* #5F4B8B - Muted Purple/Grey */
+    --foreground: 0 0% 100%; /* #FFFFFF - White */
+    --card: 260 47% 15%; /* Slightly lighter than primary */
+    --card-foreground: 0 0% 100%; /* White */
+    --popover: 260 47% 10%; /* Darker than primary */
+    --popover-foreground: 0 0% 100%; /* White */
+    --primary: 260 47% 12%; /* #1A0F2E - Solana Teal */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 259 30% 42%; /* #5F4B8B - Light Grey */
+    --secondary-foreground: 0 0% 100%; /* White */
+    --muted: 260 47% 20%; /* Slightly lighter muted */
+    --muted-foreground: 0 0% 70%; /* Lighter Grey for muted text */
+    --accent: 0 0% 100%; /* #FFFFFF - Electric Blue (as White) */
+    --accent-foreground: 260 47% 12%; /* #1A0F2E - Primary color for text on accent */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 47% 25%; /* Slightly lighter border */
+    --input: 260 47% 20%; /* Muted input background */
+    --ring: 0 0% 100%; /* White for focus rings */
+    --chart-1: 195 84% 50%;
+    --chart-2: 215 80% 60%;
+    --chart-3: 280 70% 65%;
+    --chart-4: 320 65% 70%;
+    --chart-5: 0 0% 80%;
+    --sidebar-background: 260 47% 10%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 260 47% 12%;
+    --sidebar-accent: 260 47% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 260 47% 20%;
+    --sidebar-ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Use the font variable provided by geist/font */
+    font-family: var(--font-geist-sans);
+    font-feature-settings: "rlig" 1,"calt" 1;
+  }
+}
+
+/* Wallet Adapter Styles */
+.wallet-adapter-button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.wallet-adapter-button:hover {
+  background-color: hsl(var(--primary) / 0.9);
+}
+
+.wallet-adapter-modal-wrapper {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.wallet-adapter-modal-button-close {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+.wallet-adapter-modal-list {
+  background-color: hsl(var(--background));
+}
+
+.wallet-adapter-modal-list .wallet-adapter-button {
+  background-color: transparent;
+  color: hsl(var(--foreground));
+}
+
+.wallet-adapter-modal-list .wallet-adapter-button:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.wallet-adapter-button-start-icon {
+  display: none !important;
+}

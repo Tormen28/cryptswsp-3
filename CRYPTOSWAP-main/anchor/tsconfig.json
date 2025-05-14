@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "types": ["mocha", "chai"],
+    "typeRoots": ["./node_modules/@types"],
+    "lib": ["es2015"],
+    "module": "commonjs",
+    "target": "es6",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true, // Enable strict type-checking options
+    "noImplicitAny": true, // Warn on expressions and declarations with an implied 'any' type.
+    "strictNullChecks": true, // Enable strict null checks.
+    "resolveJsonModule": true,
+     "outDir": "./dist", // Optional: Specify output directory for compiled JS files
+     "rootDir": "./" // Specify root directory of source files
+  },
+  "include": [
+    "tests/**/*.ts",
+    "target/types/**/*.ts" // Include the generated types
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

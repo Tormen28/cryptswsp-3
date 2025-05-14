@@ -1,0 +1,23 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Ejecutando validaciones pre-commit..."
+
+# Verificar que no haya archivos sin seguimiento
+if [ -n "$(git status --porcelain)" ]; then
+  echo "⚠️  Hay archivos sin seguimiento. Por favor, agrégalos o ignóralos."
+  git status --porcelain
+  exit 1
+fi
+
+# Ejecutar lint-staged con mensajes informativos
+echo "📝 Ejecutando lint-staged..."
+npx lint-staged
+
+# Verificar el resultado de lint-staged
+if [ $? -ne 0 ]; then
+  echo "❌ Error: Las validaciones fallaron. Por favor, corrige los errores antes de hacer commit."
+  exit 1
+fi
+
+echo "✅ Validaciones completadas exitosamente." 
